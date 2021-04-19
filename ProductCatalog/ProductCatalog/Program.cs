@@ -1,12 +1,18 @@
-﻿using System;
+﻿using ProductCatalog.Entities;
+using System;
 
 namespace ProductCatalog
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Catalog catalog = new Catalog();
+
+            catalog.DisplayCatalog();
+
+
         }
     }
 }

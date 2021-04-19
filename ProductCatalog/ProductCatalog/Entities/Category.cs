@@ -18,5 +18,7 @@ namespace ProductCatalog.Entities
             AutoIncrement++;
             Id = AutoIncrement;
         }
+
+      
     }
 }
