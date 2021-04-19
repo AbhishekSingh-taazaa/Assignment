@@ -13,64 +13,29 @@ namespace Lift.Entites
 
         public Lift Lift { get; set; }
 
-        public Building(int liftCapacity,int[][] floorAndPeopleComposition) {
-
-             this.Floors = floorAndPeopleComposition.Select((floorComposition, floorNumber) =>
-                  {
-                      var floor = new Floor(floorNumber, floorComposition);
-                      floor.ButtonPressedForCallingTheLift += LiftRequested;
-                      return floor;
-                  }).ToArray();
-            this.Lift = new Lift(liftCapacity, this.Floors.Length);
-
-        }
-
-       public void Liftstart() {
-
-            foreach (Floor floor in Floors) {
-
-                floor.PeopleWaitingForLift.ForEach(p =>
-
-                {
-                    if (p.WaitingStatus == WaitingStatus.Waiting)
-                    {
-                        p.PressButton();
-
-                    }
-                
-                });
-               
-            }
-
-            this.Lift.MoveToTop();
-            this.Lift.MoveToGround();
-            Console.WriteLine($"Stopped On:{this.Lift.CurrentFloor}");
-
-        }
-
-        public void LiftRequested(Direction direction, int floorNumberRequestedOn, List<Person> peopleWaiting)
+        public Building(int liftCapacity, int[][] floorAndPeopleComposition)
         {
-           // Console.WriteLine("Lift is Requested");
-            Console.WriteLine("Lift Stopped On "+floorNumberRequestedOn+" Floor");
+            Floors = floorAndPeopleComposition.Select((floorComposition, floorNumber) =>
+            {
+                var floor = new Floor(floorNumber, floorComposition);
+                floor.ButtonPressedForCallingTheLift += this.LiftRequested;
+                return floor;
+            }).ToArray();
 
-            this.Lift.LiftManager(direction, floorNumberRequestedOn);
+            Lift = new Lift(liftCapacity);
 
-            peopleWaiting.ForEach(person => {
+            Lift.LiftArriverAtAFloor += LiftArrivedAtAFloor;
+        }
 
-                if (person.DestinationFloor > this.Lift.CurrentFloor)
-                {
-                    person.WaitingStatus = WaitingStatus.OnBoarding;
-                    
-                    this.Lift.People.Add(person);
-                    
-                }
-                else if (person.DestinationFloor < this.Lift.CurrentFloor)
-                {
-                    person.WaitingStatus = WaitingStatus.OnBoarding;
-                    this.Lift.People.Add(person);
-                }
-            });
-           
+        public void LiftRequested(Direction direction, int floorNumberRequestedOn)
+        {
+
+        }
+
+        public void LiftArrivedAtAFloor(int floorNumber)
+        {
+            var floor = this.Floors.Single(floor => floor.FloorNumber == floorNumber);
+            floor.LiftHasArrived(this.Lift);
         }
     }
 }

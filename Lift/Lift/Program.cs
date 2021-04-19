@@ -11,8 +11,8 @@ namespace Lift
                 new int[]{ } , //0
                 new int[0], //1
                 new int[] {4},  //2
-                new int[0],  //3
-                new int[] {2}, //4
+                new int[]{0},  //3
+                new int[0], //4
                  new int[0] , //5
                 new int[0], //6
                   new int[0] , //7
@@ -24,7 +24,7 @@ namespace Lift
 
             var building = new Building(liftCapacity, rawInput);
 
-            building.Liftstart();
+           
 
            
         }

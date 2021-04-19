@@ -1,4 +1,5 @@
-﻿using Lift.Enums;
+﻿using Lift.Delegates;
+using Lift.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,180 +10,59 @@ namespace Lift.Entites
 {
    public class Lift
     {
-        public int Capacity { get; set; }
+        #region "Events"
+
+        public event LiftArrivedAtAFloor LiftArriverAtAFloor;
+
+        #endregion
+
+        #region "Data"
+        public int Capacity { get; }
         public List<Person> People { get; set; }
         public int CurrentFloor { get; set; }
+        public Direction LiftDirection { get; set; }
 
-        public int TopFloor { get;  }
+        #endregion
 
-        public Lift(int capacity,int topFloor) {
+        public Lift(int capacity)
+        {
             this.CurrentFloor = 0;
             this.Capacity = capacity;
-            this.TopFloor = topFloor;
-            this.People = new List<Person>();
+            this.LiftDirection = Direction.Stationary;
+        }
+
+        public void Start()
+        {
+            this.LiftDirection = Direction.GoingUp;
+            this.LiftArriverAtAFloor(this.CurrentFloor);
+        }
+
+        public void OnboardPeople(List<Person> people)
+        {
+            this.People.AddRange(people);
+        }
+
+        public List<Person> OffboardPeople(int floorNumber)
+        {
+            var peopleToOffboard = this.People.Where(p => p.DestinationFloor == floorNumber).ToList();
+            this.People = this.People.Where(p => p.DestinationFloor != floorNumber).ToList();
+            return peopleToOffboard;
+        }
+
+        public int GetAvailableCapacity()
+        {
+            return this.Capacity - this.People.Count;
+        }
+
+        private void MoveUp()
+        {
 
         }
 
+        private void MoveDown()
+        {
 
-       private void MoveUp(int requestedFloorToGo) {
-
-           while (requestedFloorToGo > this.CurrentFloor && requestedFloorToGo <=this.TopFloor) {
-
-                this.CurrentFloor++;
-
-                List<Person> Newpeople = new List<Person>();
-                this.People.ForEach(person =>
-                {
-
-                    person.CurrentFloor = this.CurrentFloor;
-                    if (person.DestinationFloor == this.CurrentFloor) {
-
-                        Console.WriteLine(person.DestinationFloor+" Reached");
-                        person.WaitingStatus = WaitingStatus.Reached;
-                    
-                    }
-                    else
-                    {
-                        Newpeople.Add(person);
-
-                    }
-                    this.People = Newpeople;
-
-
-                }
-
-
-                ); 
-
-
-            }
-            
-            
-        
-        }
-
-      private  void MoveDown(int requestedFloorToGo) {
-
-            while (requestedFloorToGo < CurrentFloor && requestedFloorToGo > 0) {
-
-                this.CurrentFloor--;
-                List<Person> Newpeople = new List<Person>();
-                this.People.ForEach(person =>
-                {
-
-                    person.CurrentFloor = this.CurrentFloor;
-                    if (person.DestinationFloor == this.CurrentFloor)
-                    {
-
-                        Console.WriteLine(person.DestinationFloor + " Reached");
-                        person.WaitingStatus = WaitingStatus.Reached;
-
-                    }
-                    else
-                    {
-                        Newpeople.Add(person);
-
-                    }
-                    this.People = Newpeople;
-
-
-                }
-
-
-                );
-
-
-            }
-        
-        
-        }
-
-
-        public void MoveToTop() {
-
-            if (this.People.Count >0) {
-
-                while (this.CurrentFloor < this.TopFloor) {
-
-                    this.CurrentFloor++;
-
-                    List<Person> Newpeople = new List<Person>();
-                    this.People.ForEach(person =>
-                    {
-
-                        person.CurrentFloor = this.CurrentFloor;
-                        if (person.DestinationFloor == this.CurrentFloor)
-                        {
-
-                            Console.WriteLine(person.DestinationFloor + " Reached");
-                            person.WaitingStatus = WaitingStatus.Reached;
-
-                        }
-                        else
-                        {
-                            Newpeople.Add(person);
-
-                        }
-                        this.People = Newpeople;
-
-
-                    }
-
-
-                    );
-                }
-
-
-            }
-            else {
-
-                this.MoveToGround();
-            }
-        }
-
-        public void MoveToGround() {
-
-            if (this.People.Count == 0)
-            {
-                this.CurrentFloor = 0;
-            }
-            else
-            {
-                while (this.CurrentFloor > 0)
-                {
-                    this.CurrentFloor--;
-                    List<Person> Newpeople = new List<Person>();
-                    this.People.ForEach(p =>
-                    {
-                        p.CurrentFloor = this.CurrentFloor;
-                        if (p.DestinationFloor == this.CurrentFloor)
-                        {
-                            Console.WriteLine($"{p.DestinationFloor} Reached");
-                            p.WaitingStatus = WaitingStatus.Reached;
-                        }
-                        else
-                        {
-                            Newpeople.Add(p);
-                        }
-                    });
-                    this.People = Newpeople;
-                }
-            }
-        }
-
-
-        public void LiftManager(Direction direction,int requestedOnWhichFloor) {
-
-            if (direction == Direction.GoingUp) {
-
-                this.MoveUp(requestedOnWhichFloor);
-            }
-            else if (direction == Direction.GoingDown) {
-
-                this.MoveDown(requestedOnWhichFloor);
-            
-            }
-        
         }
     }
+
 }
