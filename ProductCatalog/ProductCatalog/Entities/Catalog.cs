@@ -7,12 +7,12 @@ namespace ProductCatalog.Entities
 {
     public class Catalog
     {
-        public static OperationOnCategory OperationOnCategory { get; set; }
-        public OperationOnProducts OperationOnProducts  { get; set; }
+        OperationOnProducts OperationOnProducts = new OperationOnProducts();
+        OperationOnCategory operationOnCategory = new OperationOnCategory();
 
-        Category category = new Category();
+        //Category category = new Category();
 
-        Product product = new Product();
+        //Product product = new Product();
         //public Catalog()
         //{
         //    Catalog.OperationOnCategory = new OperationOnCategory();
@@ -29,6 +29,7 @@ namespace ProductCatalog.Entities
             while (stop != true)
             {
 
+                
                 int k = Convert.ToInt32(Console.ReadLine());
                 switch (k)
                 {
@@ -75,34 +76,37 @@ namespace ProductCatalog.Entities
 
             //d.Search a Category(By Id, Name or Short Code)
 
-            Console.WriteLine("1. Enter a Category");
-            Console.WriteLine("2. List all Categories");
-            Console.WriteLine("3. Delete a Category");
-            Console.WriteLine("4. Search a Category");
-            Console.WriteLine("5. Exit");
-
+          
             bool categoryStop = false;
 
             while (categoryStop != true)
             {
+                Console.WriteLine("1. Enter a Category");
+                Console.WriteLine("2. List all Categories");
+                Console.WriteLine("3. Delete a Category");
+                Console.WriteLine("4. Search a Category");
+                Console.WriteLine("5. Exit");
+
                 int l = Convert.ToInt32(Console.ReadLine());
                 switch (l)
                 {
 
                     case 1:
                         Console.WriteLine("Enter a Category");
+                        operationOnCategory.AddCategory();
                        
                         break;
                     case 2:
-                        Console.WriteLine("List all Categories");
+                        
+                        operationOnCategory.DisplayCategories();
                        
                         break;
                     case 3:
-                        Console.WriteLine("Delete a Category");
+                        operationOnCategory.DeleteCategory();
                        
                         break;
                     case 4:
-                        Console.WriteLine("Search a Category");
+                        operationOnCategory.SearchCategory();
                        
                         break;
                     case 5:
@@ -143,35 +147,41 @@ namespace ProductCatalog.Entities
 // c.Delete a Product(Enter Short Code or ID to delete)
 
 //d.Search a Product(By Id, Name, Short Code, Selling Price Greater than / Less Than / Equal To entered price)
-            Console.WriteLine("1.  Enter a Product");
-            Console.WriteLine("2. List all products");
-            Console.WriteLine("3. Delete a Product(Enter Short Code or ID to delete)");
-            Console.WriteLine("4. Search a Product");
-            Console.WriteLine("5. Exit");
-
+           
             bool ProductStop = false;
 
             while (ProductStop != true)
             {
+
+                Console.WriteLine("1. Add a Product");
+                Console.WriteLine("2. List all products");
+                Console.WriteLine("3. Delete a Product(Enter Short Code or ID to delete)");
+                Console.WriteLine("4. Search a Product");
+                Console.WriteLine("5. Exit");
+
+
                 int i = Convert.ToInt32(Console.ReadLine());
                 switch (i)
                 {
 
                     case 1:
-                        Console.WriteLine("Enter a Product");
+                        Console.WriteLine("Enter a Product Details");
+                        OperationOnProducts.AddProduct();
 
                         break;
                     case 2:
                         Console.WriteLine("List all Product");
+                        OperationOnProducts.DisplayProduct();
 
                         break;
                     case 3:
                         Console.WriteLine("Delete a Product");
+                        OperationOnProducts.DeleteProduct();
 
                         break;
                     case 4:
                         Console.WriteLine("Search a Product");
-
+                        OperationOnProducts.findProduct();
                         break;
                     case 5:
                         ProductStop = true;

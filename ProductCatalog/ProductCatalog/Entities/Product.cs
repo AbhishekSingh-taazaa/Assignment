@@ -13,16 +13,20 @@ namespace ProductCatalog.Entities
 
         public string ShortCode { get; set; }
 
-        public List<Category> Categories { get; set; }
+       // public List<Category> Categories { get; set; }
 
         public string Description { get; set; }
 
         public int SellingPrice { get; set; }
+
+        public string ProductCategory { get; set; }
 
         public Product()
         {
             AutoIncrement++;
             Id = AutoIncrement;
         }
+
+       
     }
 }
