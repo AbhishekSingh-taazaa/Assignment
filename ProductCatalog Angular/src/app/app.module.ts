@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 
 import {MatCardModule} from '@angular/material/card';
@@ -23,11 +24,19 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { SearchProductComponent } from './search-product/search-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { ListProductComponent } from './list-product/list-product.component';
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
-    ProductComponent
+    ProductComponent,
+    AddProductComponent,
+    SearchProductComponent,
+    DeleteProductComponent,
+    ListProductComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,9 @@ import { ProductComponent } from './product/product.component';
     MatRadioModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
