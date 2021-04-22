@@ -11,7 +11,7 @@ namespace ProductCatalog.OperationOnEntities
        public static List<Product> products = new List<Product> { 
        
            new Product{
-           Name ="Abhi",
+           Name ="Rex",
            Description="Human",
            Manufacturer="Rex",
            SellingPrice=20000,
@@ -19,7 +19,7 @@ namespace ProductCatalog.OperationOnEntities
            ProductCategory = "Engineer"
            },
             new Product{
-           Name ="Arpit",
+           Name ="Duke",
            Description="Human",
            Manufacturer="Rex",
            SellingPrice=20000,
@@ -256,19 +256,19 @@ namespace ProductCatalog.OperationOnEntities
                         {
                             var equal = products.Single(s => sellingprice == s.SellingPrice);
                             Console.WriteLine("\nProduct having price equal to " + sellingprice);
-                            equal.ToString();
+                            Console.WriteLine(equal.ToString());
                         }
                         catch (Exception e) {
                             Console.WriteLine("Product Not found" + e.Message);
                         }
                         Console.WriteLine("Product having price greater than "+sellingprice);
                         foreach (Product p in maxlist) {
-                            p.ToString();
+                            Console.WriteLine(p.ToString());
                         };
                         Console.WriteLine("\nProduct having price less than " + sellingprice);
                         foreach (Product p in minlist)
                         {
-                            p.ToString();
+                            Console.WriteLine(p.ToString());
                         };
                         break;
                     case 5:

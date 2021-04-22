@@ -21,7 +21,7 @@ namespace ProductCatalog.Entities
 
         public override string ToString()
         {
-            return $"Name -- {this.Name} \nDescription -- {this.Description} \nShortCode -- {this.ShortCode}\n\n\n";
+            return $"Id -- {this.Id}\nName -- {this.Name} \nDescription -- {this.Description} \nShortCode -- {this.ShortCode}\n\n\n";
         }
     }
 }
