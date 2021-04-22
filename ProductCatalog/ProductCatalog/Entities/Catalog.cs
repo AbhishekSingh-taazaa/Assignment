@@ -9,15 +9,7 @@ namespace ProductCatalog.Entities
     {
         OperationOnProducts OperationOnProducts = new OperationOnProducts();
         OperationOnCategory operationOnCategory = new OperationOnCategory();
-
-        //Category category = new Category();
-
-        //Product product = new Product();
-        //public Catalog()
-        //{
-        //    Catalog.OperationOnCategory = new OperationOnCategory();
-        //    this.OperationOnProducts = new OperationOnProducts();
-        //}
+  
         public void DisplayCatalog()
         {
             Console.WriteLine("--welcome--");
@@ -57,28 +49,13 @@ namespace ProductCatalog.Entities
                 }
 
                  Console.Clear();
-                
-
             }
             
         }
-
-
-        // Category Catalog
+        //Category Catalog
         public void DisplayCategoryCatalog()
         {
-
-            //           a. Enter a Category.
-
-            //    b.List all Categories
-
-            //c.Delete a Category(Enter Short Code or ID to delete)
-
-            //d.Search a Category(By Id, Name or Short Code)
-
-          
             bool categoryStop = false;
-
             while (categoryStop != true)
             {
                 Console.WriteLine("1. Enter a Category");
@@ -86,11 +63,9 @@ namespace ProductCatalog.Entities
                 Console.WriteLine("3. Delete a Category");
                 Console.WriteLine("4. Search a Category");
                 Console.WriteLine("5. Exit");
-
                 int l = Convert.ToInt32(Console.ReadLine());
                 switch (l)
                 {
-
                     case 1:
                         Console.WriteLine("Enter a Category");
                         operationOnCategory.AddCategory();
@@ -106,8 +81,7 @@ namespace ProductCatalog.Entities
                        
                         break;
                     case 4:
-                        operationOnCategory.SearchCategory();
-                       
+                        operationOnCategory.SearchCategory(); 
                         break;
                     case 5:
                         categoryStop = true;
@@ -115,7 +89,6 @@ namespace ProductCatalog.Entities
                         Console.Clear();
                         this.DisplayCatalog();
                         break;
-
                     default:
                         Console.WriteLine("Invalid Operation");
                         break;
@@ -124,32 +97,11 @@ namespace ProductCatalog.Entities
                
             }
 
-
-
         }
-
-
-
-
-
-
-
         // Product Catelog
-
-
         public void DisplayProductCatalog()
         {
-
-//            Enter a Product.
-
-//  b.List all products.
-
-// c.Delete a Product(Enter Short Code or ID to delete)
-
-//d.Search a Product(By Id, Name, Short Code, Selling Price Greater than / Less Than / Equal To entered price)
-           
             bool ProductStop = false;
-
             while (ProductStop != true)
             {
 
@@ -158,7 +110,6 @@ namespace ProductCatalog.Entities
                 Console.WriteLine("3. Delete a Product(Enter Short Code or ID to delete)");
                 Console.WriteLine("4. Search a Product");
                 Console.WriteLine("5. Exit");
-
 
                 int i = Convert.ToInt32(Console.ReadLine());
                 switch (i)
@@ -177,7 +128,6 @@ namespace ProductCatalog.Entities
                     case 3:
                         Console.WriteLine("Delete a Product");
                         OperationOnProducts.DeleteProduct();
-
                         break;
                     case 4:
                         Console.WriteLine("Search a Product");
@@ -187,19 +137,15 @@ namespace ProductCatalog.Entities
                         ProductStop = true;
                         Console.WriteLine("Exiting");
                         Console.Clear();
-                        
                         this.DisplayCatalog();
                         break;
 
                     default:
                         Console.WriteLine("Invalid Operation");
                         break;
-
                 }
 
             }
-
-
 
         }
 

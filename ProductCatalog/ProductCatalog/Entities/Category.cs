@@ -19,6 +19,9 @@ namespace ProductCatalog.Entities
             Id = AutoIncrement;
         }
 
-      
+        public override string ToString()
+        {
+            return $"Name -- {this.Name} \nDescription -- {this.Description} \nShortCode -- {this.ShortCode}\n\n\n";
+        }
     }
 }
