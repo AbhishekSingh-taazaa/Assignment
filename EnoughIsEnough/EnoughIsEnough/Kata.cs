@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace EnoughIsEnough
 {
-    class Kata
+  public  class Kata
     {
+        public static int[] DeleteNth(int[] Arry, int MaxOccurence) {
+
+        
+            List<int> localList = new List<int>();
+            for (int i=0; i< Arry.Length;++i) {
+                
+                if (localList.Count(item => item == Arry[i]) < MaxOccurence) {
+
+                    localList.Add(Arry[i]);
+
+                }
+            
+            }
+
+            return localList.ToArray(); 
+        }
     }
 }
