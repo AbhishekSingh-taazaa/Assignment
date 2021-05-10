@@ -1,0 +1,16 @@
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\bin\Debug\net5.0\TwoJoggersKata.exe
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\bin\Debug\net5.0\TwoJoggersKata.deps.json
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\bin\Debug\net5.0\TwoJoggersKata.runtimeconfig.json
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\bin\Debug\net5.0\TwoJoggersKata.runtimeconfig.dev.json
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\bin\Debug\net5.0\TwoJoggersKata.dll
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\bin\Debug\net5.0\ref\TwoJoggersKata.dll
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\bin\Debug\net5.0\TwoJoggersKata.pdb
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.csprojAssemblyReference.cache
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.AssemblyInfoInputs.cache
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.AssemblyInfo.cs
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.csproj.CoreCompileInputs.cache
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.dll
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\ref\TwoJoggersKata.dll
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.pdb
+C:\Users\S S INFOTECH\source\repos\TwoJoggersKata\TwoJoggersKata\obj\Debug\net5.0\TwoJoggersKata.genruntimeconfig.cache

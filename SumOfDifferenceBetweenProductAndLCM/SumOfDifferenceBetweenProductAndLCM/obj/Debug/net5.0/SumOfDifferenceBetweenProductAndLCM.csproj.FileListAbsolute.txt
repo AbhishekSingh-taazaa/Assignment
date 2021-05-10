@@ -1,0 +1,16 @@
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\bin\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.exe
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\bin\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.deps.json
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\bin\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.runtimeconfig.json
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\bin\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.runtimeconfig.dev.json
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\bin\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.dll
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\bin\Debug\net5.0\ref\SumOfDifferenceBetweenProductAndLCM.dll
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\bin\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.pdb
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.AssemblyInfoInputs.cache
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.AssemblyInfo.cs
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.csproj.CoreCompileInputs.cache
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.dll
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\ref\SumOfDifferenceBetweenProductAndLCM.dll
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.pdb
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.genruntimeconfig.cache
+C:\Users\S S INFOTECH\source\repos\SumOfDifferenceBetweenProductAndLCM\SumOfDifferenceBetweenProductAndLCM\obj\Debug\net5.0\SumOfDifferenceBetweenProductAndLCM.csprojAssemblyReference.cache
