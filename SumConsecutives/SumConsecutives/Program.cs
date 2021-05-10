@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SumConsecutives
 {
@@ -6,7 +7,11 @@ namespace SumConsecutives
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
+            List<int> list = new List<int> { 3,4,6,6,6,7,7,8,8 };
+
+            Kata.SumConsecutive(list);
+
         }
     }
 }
