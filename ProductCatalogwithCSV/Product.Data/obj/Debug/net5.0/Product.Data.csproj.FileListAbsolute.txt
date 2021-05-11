@@ -1,0 +1,11 @@
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\bin\Debug\net5.0\Product.Data.deps.json
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\bin\Debug\net5.0\Product.Data.dll
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\bin\Debug\net5.0\ref\Product.Data.dll
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\bin\Debug\net5.0\Product.Data.pdb
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\obj\Debug\net5.0\Product.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\obj\Debug\net5.0\Product.Data.AssemblyInfoInputs.cache
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\obj\Debug\net5.0\Product.Data.AssemblyInfo.cs
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\obj\Debug\net5.0\Product.Data.csproj.CoreCompileInputs.cache
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\obj\Debug\net5.0\Product.Data.dll
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\obj\Debug\net5.0\ref\Product.Data.dll
+C:\Users\S S INFOTECH\source\repos\Product\Product.Data\obj\Debug\net5.0\Product.Data.pdb
