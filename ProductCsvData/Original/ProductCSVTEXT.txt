@@ -1,0 +1,3 @@
+Id,Name,Manufacturer,ShortCode,Description,SellingPrice,ProductCategory
+121, Apple, Rex, APP, Fruits, 200, Food
+122, Orange, Rex, ORA, Fruits, 300, Food
