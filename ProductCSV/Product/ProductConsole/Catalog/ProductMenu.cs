@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProductConsole.Operations;
+using ProductLibrary.OperationsOnFile;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,10 @@ namespace ProductConsole.Catalog
 {
    public class ProductMenu
     {
+        
         public string ProductFilePath { get; }
+
+       
         public ProductMenu(string productFilePath)
         {
             this.ProductFilePath = productFilePath;
@@ -17,6 +22,8 @@ namespace ProductConsole.Catalog
 
         public void DisplayProductCatalog()
         {
+            ProductOperations productOperations = new ProductOperations(ProductFilePath);
+           
             bool ProductStop = false;
             while (ProductStop != true)
             {
@@ -33,21 +40,21 @@ namespace ProductConsole.Catalog
 
                     case 1:
                         Console.WriteLine("Enter a Product Details");
-                        //OperationOnProducts.AddProduct();
+                        productOperations.AddProduct();
 
                         break;
                     case 2:
                         Console.WriteLine("List all Product");
-                       // OperationOnProducts.DisplayProduct();
+                        productOperations.DisplayProduct();
 
                         break;
                     case 3:
                         Console.WriteLine("Delete a Product");
-                       // OperationOnProducts.DeleteProduct();
+                        productOperations.DeleteProduct();
                         break;
                     case 4:
                         Console.WriteLine("Search a Product");
-                       // OperationOnProducts.findProduct();
+                        productOperations.findProduct();
                         break;
                     case 5:
                         ProductStop = true;

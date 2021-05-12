@@ -17,13 +17,7 @@ namespace ProductLibrary.OperationsOnFile
         public string FilePath {get;}
         public static List<Product> CommonProductList = new List<Product>();
 
-       CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
-        {
-            TrimOptions = TrimOptions.Trim,
-            Comment = '@',
-            AllowComments = true,
-
-        };
+      
 
         public OperationOnProductFile(string inputFilePath)
         {
@@ -33,7 +27,13 @@ namespace ProductLibrary.OperationsOnFile
 
         public List<Product> ListOfProductCSV()
         {
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.CurrentCulture)
+            {
+                TrimOptions = TrimOptions.Trim,
+                Comment = '@',
+                AllowComments = true,
 
+            };
             using (StreamReader input = File.OpenText(FilePath))
             using (CsvReader csvReader = new CsvReader(input, config))
             {
@@ -51,7 +51,6 @@ namespace ProductLibrary.OperationsOnFile
         {
             var searchedProduct = CommonProductList.Single(x => x.Id == id);
 
-
             return searchedProduct;
 
         }
@@ -59,24 +58,22 @@ namespace ProductLibrary.OperationsOnFile
 
         public void AddToProductCSV(Product product)
         {
-
-
-            //prod.Product productt = new prod.Product {
-            //    Id = 123,
-            //     Name = "Grapes",
-            //     Manufacturer ="Rexer",
-            //     ShortCode = "GRAP10",
-            //     Description="Fruits",
-            //     SellingPrice=350,
-            //     ProductCategory ="Food"
-
-            //};
-
             bool append = true;
-            config.HasHeaderRecord = !append;
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.CurrentCulture)
+            {
+                TrimOptions = TrimOptions.Trim,
+                Comment = '@',
+                AllowComments = true,
+                HasHeaderRecord = !append
+
+        };
+
+          
+          
+          
            
             using (var writer = new StreamWriter(FilePath, append))
-            using (CsvWriter csvWriter = new CsvWriter(writer, config))
+                using (CsvWriter csvWriter = new CsvWriter(writer, config))
             {
 
                 csvWriter.NextRecord();
@@ -89,6 +86,13 @@ namespace ProductLibrary.OperationsOnFile
 
         public void RemoveFromProductCSVById(int id)
         {
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.CurrentCulture)
+            {
+                TrimOptions = TrimOptions.Trim,
+                Comment = '@',
+                AllowComments = true,
+
+            };
 
             Product deleteProduct = CommonProductList.Single(x => x.Id == id);
 

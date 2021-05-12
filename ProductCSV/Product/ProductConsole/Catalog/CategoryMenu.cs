@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProductConsole.Operations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,9 @@ namespace ProductConsole.Catalog
 
         public void DisplayCategoryCatalog()
         {
+            CategoryOperations categoryOperations = new CategoryOperations();
+            CategoryOperations.CategoryFilePathForOperations = CategoryFilePath;
+
             bool categoryStop = false;
             while (categoryStop != true)
             {

@@ -10,7 +10,7 @@ namespace ProductConsole.Catalog
   public  class MainMenu
     {
         private string ProductFilePath { get; }
-        public string  CategoryFilePath { get; set; }
+        public string  CategoryFilePath { get; }
         public MainMenu(string productfilePath,string categoryFilePath )
         {
             if (!File.Exists(productfilePath))
@@ -49,13 +49,14 @@ namespace ProductConsole.Catalog
 
                     case 1:
                         Console.WriteLine("Category Catalog");
-                       
+                        CategoryMenu categoryMenu = new CategoryMenu(CategoryFilePath);
+
                        // stop = true;
                         break;
 
                     case 2:
                         Console.WriteLine("Product Catalog");
-                       
+                        ProductMenu productMenu = new ProductMenu(ProductFilePath);
                        // stop = true;
                         break;
                     case 3:

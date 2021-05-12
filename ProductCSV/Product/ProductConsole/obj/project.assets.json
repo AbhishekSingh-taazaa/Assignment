@@ -10,6 +10,19 @@
         "runtime": {
           "lib/net5.0/CsvHelper.dll": {}
         }
+      },
+      "ProductLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "CsvHelper": "27.0.2"
+        },
+        "compile": {
+          "bin/placeholder/ProductLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProductLibrary.dll": {}
+        }
       }
     }
   },
@@ -35,11 +48,17 @@
         "lib/netstandard2.1/CsvHelper.dll",
         "lib/netstandard2.1/CsvHelper.xml"
       ]
+    },
+    "ProductLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ProductLibrary/ProductLibrary.csproj",
+      "msbuildProject": "../ProductLibrary/ProductLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "CsvHelper >= 27.0.2"
+      "CsvHelper >= 27.0.2",
+      "ProductLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -68,7 +87,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\S S INFOTECH\\Desktop\\ProductCSV\\Product\\ProductLibrary\\ProductLibrary.csproj": {
+              "projectPath": "C:\\Users\\S S INFOTECH\\Desktop\\ProductCSV\\Product\\ProductLibrary\\ProductLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
