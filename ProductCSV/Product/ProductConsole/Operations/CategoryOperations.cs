@@ -1,4 +1,5 @@
-﻿using ProductLibrary.OperationsOnFile;
+﻿using ProductLibrary.Entities;
+using ProductLibrary.OperationsOnFile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,17 @@ namespace ProductConsole.Operations
 {
    public class CategoryOperations
     {
-        public static HashSet<string> CategoryShortCode = new HashSet<string> { "Gro", "Foo" };
+      
 
-        public static string CategoryFilePathForOperations { get; set; } = "";
+        public  string CategoryFilePathForOperations { get;} 
 
-        OperationOnCategoryFile perationOnCategoryFile = new OperationOnCategoryFile(CategoryFilePathForOperations);
+        OperationOnCategoryFile operationOnCategoryFile { get; set; }
+
+        public CategoryOperations(string categoryFilePath)
+        {
+            CategoryFilePathForOperations = categoryFilePath;
+            operationOnCategoryFile = new OperationOnCategoryFile(CategoryFilePathForOperations);
+        }
 
         public void AddCategory()
         {
@@ -41,24 +48,19 @@ namespace ProductConsole.Operations
                 return;
             }
 
-            if (CategoryShortCode.Contains(categoryshortcode))
-            {
+            //if (CategoryShortCode.Contains(categoryshortcode))
+            //{
 
-                Console.WriteLine("ShortCode Mustbe Unique");
-                return;
-            }
-            //categoryList.Add(new Category
-            //{
-            //    Name = name,
-            //    Description = description,
-            //    ShortCode = categoryshortcode
-            //});
-            //operationOnCategoryCSV.AddToCategoryCSV(new Category
-            //{
-            //    Name = name,
-            //    Description = description,
-            //    ShortCode = categoryshortcode
-            //});
+            //    Console.WriteLine("ShortCode Mustbe Unique");
+            //    return;
+            //}
+          
+            operationOnCategoryFile.AddToCategoryCSV(new Category
+            {
+                Name = name,
+                Description = description,
+                ShortCode = categoryshortcode
+            });
 
             Console.WriteLine("New Catogery Added succesfully");
 
@@ -66,8 +68,8 @@ namespace ProductConsole.Operations
 
         public void DisplayCategories()
         {
-           
-           // operationOnCategoryCSV.ListOfCategoryCSV().ForEach(x => Console.WriteLine(x.ToString()));
+
+             operationOnCategoryFile.ListOfCategoryCSV().ForEach(x => Console.WriteLine(x.ToString()));
         }
         public void DeleteCategory()
         {
@@ -87,9 +89,8 @@ namespace ProductConsole.Operations
                         string categoryshortcode = Console.ReadLine();
                         try
                         {
-                            //var findcshortcode = categoryList.Single(code => code.ShortCode == categoryshortcode);
-                            //categoryList.Remove(findcshortcode);
-                            //OperationOnProducts.Products.RemoveAll(finding => finding.ProductCategory == findcshortcode.Name);
+
+                           
 
                             Console.WriteLine("Removed ..!");
 
@@ -102,8 +103,8 @@ namespace ProductConsole.Operations
                         int id = Convert.ToInt32(Console.ReadLine());
                         try
                         {
-                         
-                            //operationOnCategoryCSV.RemoveFromCategoryCSVById(id);
+
+                            operationOnCategoryFile.RemoveFromCategoryCSVById(id);
                             Console.WriteLine("Removed Successfully");
                         }
                         catch (Exception) { Console.WriteLine("Category not found"); }
@@ -165,9 +166,9 @@ namespace ProductConsole.Operations
                         int id = Convert.ToInt32(Console.ReadLine());
                         try
                         {
-                            //var Prod = categoryList.Single(s => id == s.Id);
-                            ////Console.WriteLine(Prod.ToString());
-                            //operationOnCategoryCSV.findInCategoryCSVById(id);
+
+                          Category categoryfind = operationOnCategoryFile.findInCategoryCSVById(id);
+                            Console.WriteLine(categoryfind.ToString());
                             Console.WriteLine("Found Succesfully");
                         }
                         catch (Exception) { Console.WriteLine("Category not found"); }

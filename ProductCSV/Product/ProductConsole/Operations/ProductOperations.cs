@@ -10,7 +10,7 @@ namespace ProductConsole.Operations
 {
    public class ProductOperations
     {
-        public HashSet<string> ShortCode = new HashSet<string>();
+       
         public  string ProductFilePathForOperations { get; set; }
         OperationOnProductFile operationOnProductFile;
         public ProductOperations(string ProductFile)
@@ -68,17 +68,17 @@ namespace ProductConsole.Operations
 
             }
 
-            if (this.ShortCode.Contains(shortcode))
-            {
+            //if (this.ShortCode.Contains(shortcode))
+            //{
 
-                Console.WriteLine("ShortCode Must Be Unique");
-                return;
-            }
+            //    Console.WriteLine("ShortCode Must Be Unique");
+            //    return;
+            //}
 
-            ShortCode.Add(shortcode);
+            //ShortCode.Add(shortcode);
             operationOnProductFile.AddToProductCSV(new Product
             {
-                Id = 1234,
+               
                 Name = name,
                 Manufacturer = manufacturer,
                 ShortCode = shortcode,
@@ -190,8 +190,8 @@ namespace ProductConsole.Operations
                 Console.WriteLine("1. Find by Id");
                 Console.WriteLine("2. Find by shortcode");
                 Console.WriteLine("3. Find by Name");
-                Console.WriteLine("4. Filter  by Selling Price");
-                Console.WriteLine("5. Exit");
+               // Console.WriteLine("4. Filter  by Selling Price");
+                Console.WriteLine("4. Exit");
                 int i = Convert.ToInt32(Console.ReadLine());
                 switch (i)
                 {
@@ -241,33 +241,33 @@ namespace ProductConsole.Operations
 
 
                         break;
+                    //case 4:
+                    //    Console.WriteLine("Enter Selling Price - ");
+                    //    //int sellingprice = Convert.ToInt32(Console.ReadLine());
+                    //    //var maxlist = Products.Where(s => sellingprice > s.SellingPrice);
+                    //    ////var minlist = Products.Where(s => sellingprice < s.SellingPrice);
+                    //    //try
+                    //    //{
+                    //    //    var equal = Products.Single(s => sellingprice == s.SellingPrice);
+                    //    //    Console.WriteLine("\nProduct having price equal to " + sellingprice);
+                    //    //    Console.WriteLine(equal.ToString());
+                    //    //}
+                    //    //catch (Exception e)
+                    //    //{
+                    //    //    Console.WriteLine("Product Not found" + e.Message);
+                    //    //}
+                    //    //Console.WriteLine("Product having price greater than " + sellingprice);
+                    //    //foreach (Prod.Product p in maxlist)
+                    //    //{
+                    //    //    Console.WriteLine(p.ToString());
+                    //    //};
+                    //    //Console.WriteLine("\nProduct having price less than " + sellingprice);
+                    //    //foreach (Prod.Product p in minlist)
+                    //    //{
+                    //    //    Console.WriteLine(p.ToString());
+                    //    //};
+                    //    break;
                     case 4:
-                        Console.WriteLine("Enter Selling Price - ");
-                        //int sellingprice = Convert.ToInt32(Console.ReadLine());
-                        //var maxlist = Products.Where(s => sellingprice > s.SellingPrice);
-                        ////var minlist = Products.Where(s => sellingprice < s.SellingPrice);
-                        //try
-                        //{
-                        //    var equal = Products.Single(s => sellingprice == s.SellingPrice);
-                        //    Console.WriteLine("\nProduct having price equal to " + sellingprice);
-                        //    Console.WriteLine(equal.ToString());
-                        //}
-                        //catch (Exception e)
-                        //{
-                        //    Console.WriteLine("Product Not found" + e.Message);
-                        //}
-                        //Console.WriteLine("Product having price greater than " + sellingprice);
-                        //foreach (Prod.Product p in maxlist)
-                        //{
-                        //    Console.WriteLine(p.ToString());
-                        //};
-                        //Console.WriteLine("\nProduct having price less than " + sellingprice);
-                        //foreach (Prod.Product p in minlist)
-                        //{
-                        //    Console.WriteLine(p.ToString());
-                        //};
-                        break;
-                    case 5:
                         Console.WriteLine("Exiting.....");
                         findProductstatus = true;
                         break;

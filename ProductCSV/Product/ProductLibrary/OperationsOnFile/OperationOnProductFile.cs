@@ -68,10 +68,7 @@ namespace ProductLibrary.OperationsOnFile
 
         };
 
-          
-          
-          
-           
+ 
             using (var writer = new StreamWriter(FilePath, append))
                 using (CsvWriter csvWriter = new CsvWriter(writer, config))
             {

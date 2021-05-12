@@ -18,8 +18,8 @@ namespace ProductConsole.Catalog
 
         public void DisplayCategoryCatalog()
         {
-            CategoryOperations categoryOperations = new CategoryOperations();
-            CategoryOperations.CategoryFilePathForOperations = CategoryFilePath;
+            CategoryOperations categoryOperations = new CategoryOperations(CategoryFilePath);
+            
 
             bool categoryStop = false;
             while (categoryStop != true)
@@ -34,20 +34,20 @@ namespace ProductConsole.Catalog
                 {
                     case 1:
                         Console.WriteLine("Enter a Category");
-                        //operationOnCategory.AddCategory();
+                        categoryOperations.AddCategory();
 
                         break;
                     case 2:
 
-                       // operationOnCategory.DisplayCategories();
+                        categoryOperations.DisplayCategories();
 
                         break;
                     case 3:
-                       // operationOnCategory.DeleteCategory();
+                        categoryOperations.DeleteCategory();
 
                         break;
                     case 4:
-                       // operationOnCategory.SearchCategory();
+                        categoryOperations.SearchCategory();
                         break;
                     case 5:
                         categoryStop = true;

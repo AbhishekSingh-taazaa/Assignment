@@ -2,7 +2,6 @@ C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\bin\Debug\net5.0
 C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\bin\Debug\net5.0\ProductLibrary.dll
 C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\bin\Debug\net5.0\ref\ProductLibrary.dll
 C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\bin\Debug\net5.0\ProductLibrary.pdb
-C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\obj\Debug\net5.0\ProductLibrary.csprojAssemblyReference.cache
 C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\obj\Debug\net5.0\ProductLibrary.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\obj\Debug\net5.0\ProductLibrary.AssemblyInfoInputs.cache
 C:\Users\S S INFOTECH\Desktop\ProductCSV\Product\ProductLibrary\obj\Debug\net5.0\ProductLibrary.AssemblyInfo.cs

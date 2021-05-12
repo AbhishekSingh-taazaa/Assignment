@@ -16,6 +16,7 @@ namespace ProductLibrary.OperationsOnFile
     {
         public string FilePath { get; set; }
         public static List<Category> CommonCategoryList = new List<Category>();
+        public static HashSet<string> categoriesShortCoeds = new HashSet<string>(); 
 
         CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
@@ -35,7 +36,14 @@ namespace ProductLibrary.OperationsOnFile
 
         public List<Category> ListOfCategoryCSV()
         {
-          
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                TrimOptions = TrimOptions.Trim,
+                Comment = '@',
+                AllowComments = true,
+
+            };
+
             using (StreamReader reader = File.OpenText(FilePath))
             using (CsvReader csvReader = new CsvReader(reader, config))
             {
@@ -59,9 +67,18 @@ namespace ProductLibrary.OperationsOnFile
 
         public void AddToCategoryCSV(Category category)
         {
-
             bool append = true;
-            config.HasHeaderRecord = !append;
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                TrimOptions = TrimOptions.Trim,
+                Comment = '@',
+                AllowComments = true,
+                HasHeaderRecord = !append
+
+        };
+
+            
+          
 
             using (var writer = new StreamWriter(FilePath, append))
             using (CsvWriter csvWriter = new CsvWriter(writer, config))
@@ -78,6 +95,13 @@ namespace ProductLibrary.OperationsOnFile
 
         public void RemoveFromCategoryCSVById(int id)
         {
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                TrimOptions = TrimOptions.Trim,
+                Comment = '@',
+                AllowComments = true,
+
+            };
 
             Category deletecategory = CommonCategoryList.Single(x => x.Id == id);
 
