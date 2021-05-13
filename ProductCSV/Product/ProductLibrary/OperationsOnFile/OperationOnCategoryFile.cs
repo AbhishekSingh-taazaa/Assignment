@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ProductLibrary.OperationsOnFile
 {
-  public  class OperationOnCategoryFile
+  public  class OperationOnCategoryFile : List<Category>
     {
         public string FilePath { get; set; }
         public static List<Category> CommonCategoryList = new List<Category>();
@@ -47,27 +47,66 @@ namespace ProductLibrary.OperationsOnFile
             using (StreamReader reader = File.OpenText(FilePath))
             using (CsvReader csvReader = new CsvReader(reader, config))
             {
-                //if (CommonCategoryList.Count() == 0 ) { }
-                CommonCategoryList = csvReader.GetRecords<Category>().ToList();
+               if (CommonCategoryList.Count() == 0 ) {
+                    CommonCategoryList = csvReader.GetRecords<Category>().ToList();
+                    CommonCategoryList.ForEach(x => categoriesShortCoeds.Add(x.ShortCode));
+                }
+               
             }
             return CommonCategoryList;
         }
 
 
-
+        //Finding Functions
         public Category findInCategoryCSVById(int id)
         {
-
             var searchedCategory = CommonCategoryList.Single(x => x.Id == id);
-
             return searchedCategory;
-
         }
 
-
-        public void AddToCategoryCSV(Category category)
+        public Category findInCategoryCSVByName(string  name)
         {
+            var searchedCategory = CommonCategoryList.Single(x => x.Name == name);
+            return searchedCategory;
+        }
+
+        public Category findInCategoryCSVByShortCode(string shortcode)
+        {
+            var searchedCategory = CommonCategoryList.Single(x => x.ShortCode == shortcode);
+            return searchedCategory;
+        }
+        //Ending Finding Functions
+
+     
+
+        //Removing Functions
+        public void RemoveFromCategoryCSVById(int id)
+        {
+            Category deletecategory = CommonCategoryList.Single(x => x.Id == id);
+            this.Remove(deletecategory);
+        }
+
+        public void RemoveFromCategoryCSVByName(string name)
+        {
+            Category deletecategory = CommonCategoryList.Single(x => x.Name == name);
+            this.Remove(deletecategory);
+        }
+
+        public void RemoveFromCategoryCSVByShortCode(string shortcode)
+        {
+            Category deletecategory = CommonCategoryList.Single(x => x.ShortCode == shortcode);
+            this.Remove(deletecategory);
+        }
+        // Ending removing functions
+
+        //trying shadowing with Add METHOD of List
+        public new void Add(Category category) 
+        {
+            CommonCategoryList.Add(category);
+            categoriesShortCoeds.Add(category.ShortCode);
             bool append = true;
+
+
             CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 TrimOptions = TrimOptions.Trim,
@@ -75,10 +114,10 @@ namespace ProductLibrary.OperationsOnFile
                 AllowComments = true,
                 HasHeaderRecord = !append
 
-        };
+            };
 
-            
-          
+
+
 
             using (var writer = new StreamWriter(FilePath, append))
             using (CsvWriter csvWriter = new CsvWriter(writer, config))
@@ -90,11 +129,14 @@ namespace ProductLibrary.OperationsOnFile
 
             }
 
-
         }
 
-        public void RemoveFromCategoryCSVById(int id)
+        //trying shadowing with Remove Mtehod of List
+
+        public new void Remove(Category category) 
         {
+            CommonCategoryList.Remove(category);
+            categoriesShortCoeds.Remove(category.ShortCode);
             CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 TrimOptions = TrimOptions.Trim,
@@ -102,10 +144,6 @@ namespace ProductLibrary.OperationsOnFile
                 AllowComments = true,
 
             };
-
-            Category deletecategory = CommonCategoryList.Single(x => x.Id == id);
-
-            CommonCategoryList.Remove(deletecategory);
 
             using (var writer = new StreamWriter(FilePath))
             using (CsvWriter csvWriter = new CsvWriter(writer, config))

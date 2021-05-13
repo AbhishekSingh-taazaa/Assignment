@@ -1,5 +1,7 @@
 ﻿using ProductConsole.Catalog;
+using ProductLibrary.Entities;
 using System;
+using ProductLibrary.OperationsOnFile;
 
 namespace ProductConsole
 {
@@ -9,8 +11,11 @@ namespace ProductConsole
         {
             string ProductFilePath = @"C:\Users\S S INFOTECH\Desktop\ProductCsvData\Original\ProductCSV.csv";
             string CategoryFilePath = @"C:\Users\S S INFOTECH\Desktop\ProductCsvData\Original\CategoryCSV.csv";
-            
-            MainMenu mainMenu = new MainMenu(ProductFilePath, CategoryFilePath);
+
+           MainMenu mainMenu = new MainMenu(ProductFilePath, CategoryFilePath);
+           
+
+
         }
     }
 }

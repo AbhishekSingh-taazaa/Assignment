@@ -68,15 +68,15 @@ namespace ProductConsole.Operations
 
             }
 
-            //if (this.ShortCode.Contains(shortcode))
-            //{
+            if (OperationOnProductFile.ProductShortCodes.Contains(shortcode))
+            {
 
-            //    Console.WriteLine("ShortCode Must Be Unique");
-            //    return;
-            //}
+                Console.WriteLine("ShortCode Must Be Unique");
+                return;
+            }
 
-            //ShortCode.Add(shortcode);
-            operationOnProductFile.AddToProductCSV(new Product
+
+            operationOnProductFile.Add(new Product
             {
                
                 Name = name,
@@ -136,9 +136,7 @@ namespace ProductConsole.Operations
                         string shortcodee = Console.ReadLine();
                         try
                         {
-                            //var findshortcode = Products.Single(s => shortcodee == s.ShortCode);
-                            //Products.Remove(findshortcode);
-                            //Console.WriteLine("Removed Successfully");
+                            operationOnProductFile.RemoveRemoveFromProductCSVByShortCode(shortcodee);
                         }
                         catch (System.InvalidOperationException)
                         {
@@ -153,9 +151,8 @@ namespace ProductConsole.Operations
                         string name = Console.ReadLine();
                         try
                         {
-                            //var findname = Products.Single(s => name == s.Name);
-                            //Products.Remove(findname);
-                            //Console.WriteLine("Removed Successfully");
+                            operationOnProductFile.RemoveRemoveFromProductCSVByName(name);
+                            Console.WriteLine("Removed Successfully");
                         }
                         catch (System.InvalidOperationException)
                         {
@@ -214,8 +211,7 @@ namespace ProductConsole.Operations
                         string shortcodee = Console.ReadLine();
                         try
                         {
-                            //var findshortcode = Products.Single(s => shortcodee == s.ShortCode);
-                            //Console.WriteLine(findshortcode.ToString());
+                            operationOnProductFile.findInProductCSVByShortCode(shortcodee).ToString();
                         }
                         catch (System.InvalidOperationException)
                         {
@@ -230,8 +226,7 @@ namespace ProductConsole.Operations
                         string name = Console.ReadLine();
                         try
                         {
-                            //var findname = Products.Single(s => name == s.Name);
-                            //Console.WriteLine(findname.ToString());
+                            operationOnProductFile.findInProductCSVByName(name).ToString();
                         }
                         catch (System.InvalidOperationException)
                         {

@@ -48,14 +48,14 @@ namespace ProductConsole.Operations
                 return;
             }
 
-            //if (CategoryShortCode.Contains(categoryshortcode))
-            //{
+            if (OperationOnCategoryFile.categoriesShortCoeds.Contains(categoryshortcode))
+            {
 
-            //    Console.WriteLine("ShortCode Mustbe Unique");
-            //    return;
-            //}
-          
-            operationOnCategoryFile.AddToCategoryCSV(new Category
+                Console.WriteLine("ShortCode Mustbe Unique");
+                return;
+            }
+
+            operationOnCategoryFile.Add(new Category
             {
                 Name = name,
                 Description = description,
@@ -90,8 +90,8 @@ namespace ProductConsole.Operations
                         try
                         {
 
-                           
 
+                            operationOnCategoryFile.RemoveFromCategoryCSVByShortCode(categoryshortcode);
                             Console.WriteLine("Removed ..!");
 
                         }
@@ -115,9 +115,7 @@ namespace ProductConsole.Operations
                         string inputName = Console.ReadLine();
                         try
                         {
-                            //var findname = categoryList.Single(s => inputName == s.Name);
-                            //categoryList.Remove(findname);
-                            //OperationOnProducts.Products.RemoveAll(finding => finding.ProductCategory == findname.Name);
+                            operationOnCategoryFile.RemoveFromCategoryCSVByName(inputName);
                             Console.WriteLine("Removed Successfully");
                         }
                         catch (System.InvalidOperationException) { Console.WriteLine("Category not found"); }
@@ -178,8 +176,8 @@ namespace ProductConsole.Operations
                         string name = Console.ReadLine();
                         try
                         {
-                            //var findname = categoryList.Single(s => name == s.Name);
-                            //Console.WriteLine(findname.ToString());
+                            Category categoryfind = operationOnCategoryFile.findInCategoryCSVByName(name);
+                            Console.WriteLine(categoryfind.ToString());
                         }
                         catch (System.InvalidOperationException) { Console.WriteLine("Category not found"); }
 
@@ -190,9 +188,8 @@ namespace ProductConsole.Operations
                         try
                         {
 
-                          //  var findcshortcode = categoryList.Single(code => code.ShortCode == categoryshortcode);
-
-                           // Console.WriteLine(findcshortcode.ToString());
+                            Category categoryfind = operationOnCategoryFile.findInCategoryCSVByShortCode(categoryshortcode);
+                            Console.WriteLine(categoryfind.ToString());
 
                         }
                         catch (System.InvalidOperationException) { Console.WriteLine("Category not found"); }
