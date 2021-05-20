@@ -1,0 +1,12 @@
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\obj\Debug\netcoreapp3.1\PraticeEntityFramework.Library.csprojAssemblyReference.cache
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\obj\Debug\netcoreapp3.1\PraticeEntityFramework.Library.AssemblyInfoInputs.cache
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\obj\Debug\netcoreapp3.1\PraticeEntityFramework.Library.AssemblyInfo.cs
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\obj\Debug\netcoreapp3.1\PraticeEntityFramework.Library.csproj.CoreCompileInputs.cache
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\bin\Debug\netcoreapp3.1\PraticeEntityFramework.Library.deps.json
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\bin\Debug\netcoreapp3.1\PraticeEntityFramework.Library.runtimeconfig.json
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\bin\Debug\netcoreapp3.1\PraticeEntityFramework.Library.runtimeconfig.dev.json
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\bin\Debug\netcoreapp3.1\PraticeEntityFramework.Library.dll
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\bin\Debug\netcoreapp3.1\PraticeEntityFramework.Library.pdb
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\obj\Debug\netcoreapp3.1\PraticeEntityFramework.Library.dll
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\obj\Debug\netcoreapp3.1\PraticeEntityFramework.Library.pdb
+C:\Users\S S INFOTECH\source\repos\PraticeEntityFramework\PraticeEntityFramework.Library\obj\Debug\netcoreapp3.1\PraticeEntityFramework.Library.genruntimeconfig.cache
