@@ -7,33 +7,37 @@ using System.Text;
 
 namespace PraticeEntityFramework.Library.OperationOnDatabase
 {
-   public class OperationOnAddressTable
+   public class OperationOnInventoryTable
     {
-        public void  AddAddress(Address address ) {
-        
-            using(DepartmentalStoreContext  context = new DepartmentalStoreContext()){
-
-                context.Address.Add(address);
-                context.SaveChanges();
-            }
-        
-        }
-
-
-        public bool RemoveAddressById(long  id)
+        public void AddInventory(Inventory inventory)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
-                try {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
+                context.Inventory.Add(inventory);
+                context.SaveChanges();
+            }
 
-                    context.Address.Remove(Address);
+        }
+
+
+        public bool RemoveInventoryByCode(string code)
+        {
+
+            using (DepartmentalStoreContext context = new DepartmentalStoreContext())
+            {
+                try
+                {
+
+                    var inventory = context.Inventory.Single(x => x.Product_Code == code);
+
+                    context.Inventory.Remove(inventory);
                     context.SaveChanges();
                     return true;
                 }
-                catch (Exception) {
+                catch (Exception)
+                {
 
                     return false;
                 }
@@ -41,19 +45,19 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public Address FindById(long id)
+        public Inventory FindInventoryProductByCode(string code)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
 
-               
+
                 try
                 {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
+                    var inventory = context.Inventory.Single(x => x.Product_Code == code);
                     context.SaveChanges();
-                    return Address;
+                    return inventory;
                 }
                 catch (Exception)
                 {
@@ -64,7 +68,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public List<Address> GetAllListOfAddress() {
+        public List<Inventory> GetAllListOfIncventory()
+        {
 
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
@@ -74,8 +79,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
                 try
                 {
 
-                    var Address = context.Address.ToList<Address>();
-                    return Address;
+                    var inventory = context.Inventory.ToList<Inventory>();
+                    return inventory;
                 }
                 catch (Exception)
                 {

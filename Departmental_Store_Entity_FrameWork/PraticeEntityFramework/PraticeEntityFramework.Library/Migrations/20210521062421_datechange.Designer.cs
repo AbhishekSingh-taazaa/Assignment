@@ -10,8 +10,8 @@ using PraticeEntityFramework.Library.Infrastructure;
 namespace PraticeEntityFramework.Library.Migrations
 {
     [DbContext(typeof(DepartmentalStoreContext))]
-    [Migration("20210519212016_version1")]
-    partial class version1
+    [Migration("20210521062421_datechange")]
+    partial class datechange
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,19 +29,29 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("AddressLine1")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(140)")
+                        .HasMaxLength(140);
 
                     b.Property<string>("AddressLine2")
-                        .HasColumnType("text");
+                        .HasColumnType("character varying(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("City")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(150)")
+                        .HasMaxLength(150);
 
                     b.Property<string>("Pincode")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character(6)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(6);
 
                     b.Property<string>("State")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(120)")
+                        .HasMaxLength(120);
 
                     b.HasKey("Address_Id");
 
@@ -69,7 +79,10 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasMaxLength(80);
 
                     b.Property<string>("Gender")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character(1)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(1);
 
                     b.Property<string>("Last_Name")
                         .IsRequired()
@@ -77,11 +90,16 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasMaxLength(60);
 
                     b.Property<string>("Phone_Number")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(10)")
+                        .HasMaxLength(10);
 
                     b.HasKey("Customer_Id");
 
                     b.HasIndex("Address_Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Customer");
                 });
@@ -92,7 +110,9 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Brand_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(100)")
+                        .HasMaxLength(100);
 
                     b.Property<bool>("InStock")
                         .HasColumnType("boolean");
@@ -112,17 +132,17 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("Address_Id")
-                        .HasColumnType("integer");
+                    b.Property<long>("Address_Id")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("Customer_Id")
-                        .HasColumnType("integer");
+                    b.Property<long>("Customer_Id")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("Date_Of_Delivery")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("Date_Of_Order")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<int>("Ordered_Quantity")
                         .HasColumnType("integer");
@@ -130,10 +150,18 @@ namespace PraticeEntityFramework.Library.Migrations
                     b.Property<string>("Product_Code")
                         .HasColumnType("text");
 
-                    b.Property<int>("Supplier_Id")
-                        .HasColumnType("integer");
+                    b.Property<long>("Supplier_Id")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Order_Id");
+
+                    b.HasIndex("Address_Id");
+
+                    b.HasIndex("Customer_Id");
+
+                    b.HasIndex("Product_Code");
+
+                    b.HasIndex("Supplier_Id");
 
                     b.ToTable("OrderDetail");
                 });
@@ -143,19 +171,23 @@ namespace PraticeEntityFramework.Library.Migrations
                     b.Property<string>("Product_Code")
                         .HasColumnType("text");
 
-                    b.Property<int>("Category_Id")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("Expiry_Date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("Manufacturing_Date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
+
+                    b.Property<int>("ProductCategory_Id")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Product_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(120)")
+                        .HasMaxLength(120);
 
                     b.HasKey("Product_Code");
+
+                    b.HasIndex("ProductCategory_Id");
 
                     b.ToTable("Product");
                 });
@@ -168,7 +200,9 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Category_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(150)")
+                        .HasMaxLength(150);
 
                     b.HasKey("ProductCategory_Id");
 
@@ -181,13 +215,15 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasColumnType("text");
 
                     b.Property<decimal>("Cost_Price")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasMaxLength(12);
 
                     b.Property<DateTime>("Date_Of_Register")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<decimal>("Selling_Price")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasMaxLength(12);
 
                     b.HasKey("Product_Code");
 
@@ -202,10 +238,14 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(200)")
+                        .HasMaxLength(200);
 
                     b.Property<string>("Role_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(80)")
+                        .HasMaxLength(80);
 
                     b.HasKey("Role_Id");
 
@@ -223,16 +263,24 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("First_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(80)")
+                        .HasMaxLength(80);
 
                     b.Property<string>("Gender")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(1)")
+                        .HasMaxLength(1);
 
                     b.Property<string>("Last_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(60)")
+                        .HasMaxLength(60);
 
                     b.Property<string>("Phone_Number")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(10)")
+                        .HasMaxLength(10);
 
                     b.Property<int>("Role_Id")
                         .HasColumnType("integer");
@@ -259,27 +307,39 @@ namespace PraticeEntityFramework.Library.Migrations
                     b.Property<long>("Address_Id")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("Address_Id1")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Email")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(120)")
+                        .HasMaxLength(120);
 
                     b.Property<string>("First_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(80)")
+                        .HasMaxLength(80);
 
                     b.Property<string>("Gender")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character(1)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(1);
 
                     b.Property<string>("Last_Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(60)")
+                        .HasMaxLength(60);
 
                     b.Property<string>("Phone_Number")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
 
                     b.HasKey("Supplier_Id");
 
-                    b.HasIndex("Address_Id1");
+                    b.HasIndex("Address_Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Supplier");
                 });
@@ -293,8 +353,39 @@ namespace PraticeEntityFramework.Library.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PraticeEntityFramework.Library.Entites.OrderDetail", b =>
+                {
+                    b.HasOne("PraticeEntityFramework.Library.Entites.Address", "Address")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("Address_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PraticeEntityFramework.Library.Entites.Customer", "Customer")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("Customer_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PraticeEntityFramework.Library.Entites.Product", "Product")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("Product_Code");
+
+                    b.HasOne("PraticeEntityFramework.Library.Entites.Supplier", "Supplier")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("Supplier_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Product", b =>
                 {
+                    b.HasOne("PraticeEntityFramework.Library.Entites.ProductCategory", "ProductCategory")
+                        .WithMany("Product")
+                        .HasForeignKey("ProductCategory_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("PraticeEntityFramework.Library.Entites.Inventory", "Inventory")
                         .WithOne("Product")
                         .HasForeignKey("PraticeEntityFramework.Library.Entites.Product", "Product_Code")
@@ -330,7 +421,9 @@ namespace PraticeEntityFramework.Library.Migrations
                 {
                     b.HasOne("PraticeEntityFramework.Library.Entites.Address", "Address")
                         .WithMany("Supplier")
-                        .HasForeignKey("Address_Id1");
+                        .HasForeignKey("Address_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

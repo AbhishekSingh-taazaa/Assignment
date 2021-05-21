@@ -7,33 +7,37 @@ using System.Text;
 
 namespace PraticeEntityFramework.Library.OperationOnDatabase
 {
-   public class OperationOnAddressTable
+   public class OperationOnCustomerTable
     {
-        public void  AddAddress(Address address ) {
-        
-            using(DepartmentalStoreContext  context = new DepartmentalStoreContext()){
-
-                context.Address.Add(address);
-                context.SaveChanges();
-            }
-        
-        }
-
-
-        public bool RemoveAddressById(long  id)
+        public void AddCustomer(Customer customer)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
-                try {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
+                context.Customer.Add(customer);
+                context.SaveChanges();
+            }
 
-                    context.Address.Remove(Address);
+        }
+
+
+        public bool RemoveCustomerById(long id)
+        {
+
+            using (DepartmentalStoreContext context = new DepartmentalStoreContext())
+            {
+                try
+                {
+
+                    var customer = context.Customer.Single(x => x.Address_Id == id);
+
+                    context.Customer.Remove(customer);
                     context.SaveChanges();
                     return true;
                 }
-                catch (Exception) {
+                catch (Exception)
+                {
 
                     return false;
                 }
@@ -41,19 +45,19 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public Address FindById(long id)
+        public Customer FindCustomerById(long id)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
 
-               
+
                 try
                 {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
+                    var customer = context.Customer.Single(x => x.Customer_Id == id);
                     context.SaveChanges();
-                    return Address;
+                    return customer;
                 }
                 catch (Exception)
                 {
@@ -64,7 +68,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public List<Address> GetAllListOfAddress() {
+        public List<Customer> GetAllListOfCustomer()
+        {
 
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
@@ -74,8 +79,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
                 try
                 {
 
-                    var Address = context.Address.ToList<Address>();
-                    return Address;
+                    var customer = context.Customer.ToList<Customer>();
+                    return customer;
                 }
                 catch (Exception)
                 {

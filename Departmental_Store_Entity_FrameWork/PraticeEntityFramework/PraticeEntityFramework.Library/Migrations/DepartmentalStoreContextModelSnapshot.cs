@@ -53,7 +53,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasKey("Address_Id");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Customer", b =>
@@ -99,7 +99,7 @@ namespace PraticeEntityFramework.Library.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Inventory", b =>
@@ -120,7 +120,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasKey("Product_Code");
 
-                    b.ToTable("Inventories");
+                    b.ToTable("Inventory");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.OrderDetail", b =>
@@ -137,10 +137,10 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("Date_Of_Delivery")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("Date_Of_Order")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<int>("Ordered_Quantity")
                         .HasColumnType("integer");
@@ -161,7 +161,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasIndex("Supplier_Id");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Product", b =>
@@ -170,10 +170,10 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Expiry_Date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("Manufacturing_Date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<int>("ProductCategory_Id")
                         .HasColumnType("integer");
@@ -187,7 +187,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasIndex("ProductCategory_Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.ProductCategory", b =>
@@ -204,7 +204,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasKey("ProductCategory_Id");
 
-                    b.ToTable("ProductCategories");
+                    b.ToTable("ProductCategory");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.ProductPrice", b =>
@@ -217,7 +217,7 @@ namespace PraticeEntityFramework.Library.Migrations
                         .HasMaxLength(12);
 
                     b.Property<DateTime>("Date_Of_Register")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<decimal>("Selling_Price")
                         .HasColumnType("numeric")
@@ -225,7 +225,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasKey("Product_Code");
 
-                    b.ToTable("productPrices");
+                    b.ToTable("ProductPrice");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Role", b =>
@@ -247,7 +247,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasKey("Role_Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Staff", b =>
@@ -292,7 +292,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasIndex("Role_Id");
 
-                    b.ToTable("Staffs");
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Supplier", b =>
@@ -339,7 +339,7 @@ namespace PraticeEntityFramework.Library.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Supplier");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Customer", b =>

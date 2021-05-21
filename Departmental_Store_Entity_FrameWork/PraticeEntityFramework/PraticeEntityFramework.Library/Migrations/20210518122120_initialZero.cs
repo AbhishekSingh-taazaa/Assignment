@@ -8,7 +8,7 @@ namespace PraticeEntityFramework.Library.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Addresses",
+                name: "Address",
                 columns: table => new
                 {
                     AddressId = table.Column<long>(nullable: false)
@@ -25,7 +25,7 @@ namespace PraticeEntityFramework.Library.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Roles",
+                name: "Role",
                 columns: table => new
                 {
                     RoleID = table.Column<int>(nullable: false)
@@ -39,7 +39,7 @@ namespace PraticeEntityFramework.Library.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Staffs",
+                name: "Staff",
                 columns: table => new
                 {
                     StaffId = table.Column<long>(nullable: false)
@@ -58,38 +58,38 @@ namespace PraticeEntityFramework.Library.Migrations
                     table.ForeignKey(
                         name: "FK_Staffs_Addresses_AddressId",
                         column: x => x.AddressId,
-                        principalTable: "Addresses",
+                        principalTable: "Address",
                         principalColumn: "AddressId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Staffs_Roles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "Roles",
+                        principalTable: "Role",
                         principalColumn: "RoleID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Staffs_AddressId",
-                table: "Staffs",
+                table: "Staff",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Staffs_RoleId",
-                table: "Staffs",
+                table: "Staff",
                 column: "RoleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Staffs");
+                name: "Staff");
 
             migrationBuilder.DropTable(
-                name: "Addresses");
+                name: "Address");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Role");
         }
     }
 }

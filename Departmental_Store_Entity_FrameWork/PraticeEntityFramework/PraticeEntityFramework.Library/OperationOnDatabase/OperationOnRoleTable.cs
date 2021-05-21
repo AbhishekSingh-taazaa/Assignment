@@ -7,33 +7,37 @@ using System.Text;
 
 namespace PraticeEntityFramework.Library.OperationOnDatabase
 {
-   public class OperationOnAddressTable
+   public class OperationOnRoleTable
     {
-        public void  AddAddress(Address address ) {
-        
-            using(DepartmentalStoreContext  context = new DepartmentalStoreContext()){
-
-                context.Address.Add(address);
-                context.SaveChanges();
-            }
-        
-        }
-
-
-        public bool RemoveAddressById(long  id)
+        public void AddRole(Role role)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
-                try {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
+                context.Role.Add(role);
+                context.SaveChanges();
+            }
 
-                    context.Address.Remove(Address);
+        }
+
+
+        public bool RemoveRoleById(long id)
+        {
+
+            using (DepartmentalStoreContext context = new DepartmentalStoreContext())
+            {
+                try
+                {
+
+                    var role = context.Role.Single(x => x.Role_Id == id);
+
+                    context.Role.Remove(role);
                     context.SaveChanges();
                     return true;
                 }
-                catch (Exception) {
+                catch (Exception)
+                {
 
                     return false;
                 }
@@ -41,19 +45,19 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public Address FindById(long id)
+        public Role FindRoleById(long id)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
 
-               
+
                 try
                 {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
-                    context.SaveChanges();
-                    return Address;
+                    var role = context.Role.Single(x => x.Role_Id == id);
+                   
+                    return role;
                 }
                 catch (Exception)
                 {
@@ -64,7 +68,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public List<Address> GetAllListOfAddress() {
+        public List<Role> GetAllListOfRoles()
+        {
 
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
@@ -74,8 +79,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
                 try
                 {
 
-                    var Address = context.Address.ToList<Address>();
-                    return Address;
+                    var roles = context.Role.ToList<Role>();
+                    return roles;
                 }
                 catch (Exception)
                 {

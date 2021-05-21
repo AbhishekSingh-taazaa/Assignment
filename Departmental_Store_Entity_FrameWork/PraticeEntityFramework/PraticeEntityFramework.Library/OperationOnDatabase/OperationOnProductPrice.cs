@@ -7,33 +7,37 @@ using System.Text;
 
 namespace PraticeEntityFramework.Library.OperationOnDatabase
 {
-   public class OperationOnAddressTable
+   public class OperationOnProductPrice
     {
-        public void  AddAddress(Address address ) {
-        
-            using(DepartmentalStoreContext  context = new DepartmentalStoreContext()){
-
-                context.Address.Add(address);
-                context.SaveChanges();
-            }
-        
-        }
-
-
-        public bool RemoveAddressById(long  id)
+        public void AddPrice(ProductPrice price)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
-                try {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
+                context.ProductPrice.Add(price);
+                context.SaveChanges();
+            }
 
-                    context.Address.Remove(Address);
+        }
+
+
+        public bool RemoveProductPriceByCode(string code)
+        {
+
+            using (DepartmentalStoreContext context = new DepartmentalStoreContext())
+            {
+                try
+                {
+
+                    var pricepro = context.ProductPrice.Single(x => x.Product_Code == code);
+
+                    context.ProductPrice.Remove(pricepro);
                     context.SaveChanges();
                     return true;
                 }
-                catch (Exception) {
+                catch (Exception)
+                {
 
                     return false;
                 }
@@ -41,19 +45,20 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public Address FindById(long id)
+        public List<ProductPrice> FindProductPriceByCode(string code)
         {
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
             {
 
-               
+
                 try
                 {
 
-                    var Address = context.Address.Single(x => x.Address_Id == id);
+                   
+                    List<ProductPrice> productprice = context.ProductPrice.Where(x=> x.Product_Code == code).ToList<ProductPrice>();
                     context.SaveChanges();
-                    return Address;
+                    return productprice;
                 }
                 catch (Exception)
                 {
@@ -64,7 +69,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
 
         }
 
-        public List<Address> GetAllListOfAddress() {
+        public List<ProductPrice> GetAllListOfProductPrice()
+        {
 
 
             using (DepartmentalStoreContext context = new DepartmentalStoreContext())
@@ -74,8 +80,8 @@ namespace PraticeEntityFramework.Library.OperationOnDatabase
                 try
                 {
 
-                    var Address = context.Address.ToList<Address>();
-                    return Address;
+                    var productprice = context.ProductPrice.ToList<ProductPrice>();
+                    return productprice;
                 }
                 catch (Exception)
                 {

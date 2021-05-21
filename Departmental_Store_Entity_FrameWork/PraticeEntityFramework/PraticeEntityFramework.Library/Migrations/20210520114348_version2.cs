@@ -8,23 +8,23 @@ namespace PraticeEntityFramework.Library.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Suppliers_Addresses_Address_Id1",
-                table: "Suppliers");
+                table: "Supplier");
 
             migrationBuilder.DropIndex(
                 name: "IX_Suppliers_Address_Id1",
-                table: "Suppliers");
+                table: "Supplier");
 
             migrationBuilder.DropColumn(
                 name: "Address_Id1",
-                table: "Suppliers");
+                table: "Supplier");
 
             migrationBuilder.DropColumn(
                 name: "Category_Id",
-                table: "Products");
+                table: "Product");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Phone_Number",
-                table: "Suppliers",
+                table: "Supplier",
                 fixedLength: true,
                 maxLength: 10,
                 nullable: false,
@@ -34,7 +34,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Last_Name",
-                table: "Suppliers",
+                table: "Supplier",
                 maxLength: 60,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -43,7 +43,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Gender",
-                table: "Suppliers",
+                table: "Supplier",
                 fixedLength: true,
                 maxLength: 1,
                 nullable: false,
@@ -53,7 +53,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "First_Name",
-                table: "Suppliers",
+                table: "Supplier",
                 maxLength: 80,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -62,7 +62,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Email",
-                table: "Suppliers",
+                table: "Supplier",
                 maxLength: 120,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -71,7 +71,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Phone_Number",
-                table: "Staffs",
+                table: "Staff",
                 maxLength: 10,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -80,7 +80,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Last_Name",
-                table: "Staffs",
+                table: "Staff",
                 maxLength: 60,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -89,7 +89,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Gender",
-                table: "Staffs",
+                table: "Staff",
                 maxLength: 1,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -98,7 +98,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "First_Name",
-                table: "Staffs",
+                table: "Staff",
                 maxLength: 80,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -107,7 +107,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Role_Name",
-                table: "Roles",
+                table: "Role",
                 maxLength: 80,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -116,7 +116,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Description",
-                table: "Roles",
+                table: "Role",
                 maxLength: 200,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -125,7 +125,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Product_Name",
-                table: "Products",
+                table: "Product",
                 maxLength: 120,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -134,13 +134,13 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AddColumn<int>(
                 name: "ProductCategory_Id",
-                table: "Products",
+                table: "Product",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Category_Name",
-                table: "ProductCategories",
+                table: "ProductCategory",
                 maxLength: 150,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -149,28 +149,28 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<long>(
                 name: "Supplier_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 nullable: false,
                 oldClrType: typeof(int),
                 oldType: "integer");
 
             migrationBuilder.AlterColumn<long>(
                 name: "Customer_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 nullable: false,
                 oldClrType: typeof(int),
                 oldType: "integer");
 
             migrationBuilder.AlterColumn<long>(
                 name: "Address_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 nullable: false,
                 oldClrType: typeof(int),
                 oldType: "integer");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Brand_Name",
-                table: "Inventories",
+                table: "Inventory",
                 maxLength: 100,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -179,7 +179,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Phone_Number",
-                table: "Customers",
+                table: "Customer",
                 maxLength: 10,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -188,7 +188,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Gender",
-                table: "Customers",
+                table: "Customer",
                 fixedLength: true,
                 maxLength: 1,
                 nullable: false,
@@ -198,7 +198,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "State",
-                table: "Addresses",
+                table: "Address",
                 maxLength: 120,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -207,7 +207,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Pincode",
-                table: "Addresses",
+                table: "Address",
                 fixedLength: true,
                 maxLength: 6,
                 nullable: false,
@@ -217,7 +217,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "City",
-                table: "Addresses",
+                table: "Address",
                 maxLength: 150,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -226,7 +226,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "AddressLine2",
-                table: "Addresses",
+                table: "Address",
                 maxLength: 100,
                 nullable: true,
                 oldClrType: typeof(string),
@@ -235,7 +235,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "AddressLine1",
-                table: "Addresses",
+                table: "Address",
                 maxLength: 140,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -244,91 +244,91 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Suppliers_Address_Id",
-                table: "Suppliers",
+                table: "Supplier",
                 column: "Address_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Suppliers_Email",
-                table: "Suppliers",
+                table: "Supplier",
                 column: "Email",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_ProductCategory_Id",
-                table: "Products",
+                table: "Product",
                 column: "ProductCategory_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_Address_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Address_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_Customer_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Customer_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_Product_Code",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Product_Code");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_Supplier_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Supplier_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_Email",
-                table: "Customers",
+                table: "Customer",
                 column: "Email",
                 unique: true);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_OrderDetails_Addresses_Address_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Address_Id",
-                principalTable: "Addresses",
+                principalTable: "Address",
                 principalColumn: "Address_Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_OrderDetails_Customers_Customer_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Customer_Id",
-                principalTable: "Customers",
+                principalTable: "Customer",
                 principalColumn: "Customer_Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_OrderDetails_Products_Product_Code",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Product_Code",
-                principalTable: "Products",
+                principalTable: "Product",
                 principalColumn: "Product_Code",
                 onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_OrderDetails_Suppliers_Supplier_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 column: "Supplier_Id",
-                principalTable: "Suppliers",
+                principalTable: "Supplier",
                 principalColumn: "Supplier_Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Products_ProductCategories_ProductCategory_Id",
-                table: "Products",
+                table: "Product",
                 column: "ProductCategory_Id",
-                principalTable: "ProductCategories",
+                principalTable: "ProductCategory",
                 principalColumn: "ProductCategory_Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Suppliers_Addresses_Address_Id",
-                table: "Suppliers",
+                table: "Supplier",
                 column: "Address_Id",
-                principalTable: "Addresses",
+                principalTable: "Address",
                 principalColumn: "Address_Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -337,67 +337,67 @@ namespace PraticeEntityFramework.Library.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_OrderDetails_Addresses_Address_Id",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_OrderDetails_Customers_Customer_Id",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_OrderDetails_Products_Product_Code",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_OrderDetails_Suppliers_Supplier_Id",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Products_ProductCategories_ProductCategory_Id",
-                table: "Products");
+                table: "Product");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Suppliers_Addresses_Address_Id",
-                table: "Suppliers");
+                table: "Supplier");
 
             migrationBuilder.DropIndex(
                 name: "IX_Suppliers_Address_Id",
-                table: "Suppliers");
+                table: "Supplier");
 
             migrationBuilder.DropIndex(
                 name: "IX_Suppliers_Email",
-                table: "Suppliers");
+                table: "Supplier");
 
             migrationBuilder.DropIndex(
                 name: "IX_Products_ProductCategory_Id",
-                table: "Products");
+                table: "Product");
 
             migrationBuilder.DropIndex(
                 name: "IX_OrderDetails_Address_Id",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropIndex(
                 name: "IX_OrderDetails_Customer_Id",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropIndex(
                 name: "IX_OrderDetails_Product_Code",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropIndex(
                 name: "IX_OrderDetails_Supplier_Id",
-                table: "OrderDetails");
+                table: "OrderDetail");
 
             migrationBuilder.DropIndex(
                 name: "IX_Customers_Email",
-                table: "Customers");
+                table: "Customer");
 
             migrationBuilder.DropColumn(
                 name: "ProductCategory_Id",
-                table: "Products");
+                table: "Product");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Phone_Number",
-                table: "Suppliers",
+                table: "Supplier",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -406,7 +406,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Last_Name",
-                table: "Suppliers",
+                table: "Supplier",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -414,7 +414,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Gender",
-                table: "Suppliers",
+                table: "Supplier",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -423,7 +423,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "First_Name",
-                table: "Suppliers",
+                table: "Supplier",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -431,7 +431,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Email",
-                table: "Suppliers",
+                table: "Supplier",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -439,13 +439,13 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AddColumn<long>(
                 name: "Address_Id1",
-                table: "Suppliers",
+                table: "Supplier",
                 type: "bigint",
                 nullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Phone_Number",
-                table: "Staffs",
+                table: "Staff",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -453,7 +453,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Last_Name",
-                table: "Staffs",
+                table: "Staff",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -461,7 +461,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Gender",
-                table: "Staffs",
+                table: "Staff",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -469,7 +469,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "First_Name",
-                table: "Staffs",
+                table: "Staff",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -477,7 +477,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Role_Name",
-                table: "Roles",
+                table: "Role",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -485,7 +485,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Description",
-                table: "Roles",
+                table: "Role",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -493,7 +493,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Product_Name",
-                table: "Products",
+                table: "Product",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -501,14 +501,14 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AddColumn<int>(
                 name: "Category_Id",
-                table: "Products",
+                table: "Product",
                 type: "integer",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Category_Name",
-                table: "ProductCategories",
+                table: "ProductCategory",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -516,28 +516,28 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<int>(
                 name: "Supplier_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 type: "integer",
                 nullable: false,
                 oldClrType: typeof(long));
 
             migrationBuilder.AlterColumn<int>(
                 name: "Customer_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 type: "integer",
                 nullable: false,
                 oldClrType: typeof(long));
 
             migrationBuilder.AlterColumn<int>(
                 name: "Address_Id",
-                table: "OrderDetails",
+                table: "OrderDetail",
                 type: "integer",
                 nullable: false,
                 oldClrType: typeof(long));
 
             migrationBuilder.AlterColumn<string>(
                 name: "Brand_Name",
-                table: "Inventories",
+                table: "Inventory",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -545,7 +545,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Phone_Number",
-                table: "Customers",
+                table: "Customer",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -553,7 +553,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Gender",
-                table: "Customers",
+                table: "Customer",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -562,7 +562,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "State",
-                table: "Addresses",
+                table: "Address",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -570,7 +570,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Pincode",
-                table: "Addresses",
+                table: "Address",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -579,7 +579,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "City",
-                table: "Addresses",
+                table: "Address",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -587,7 +587,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "AddressLine2",
-                table: "Addresses",
+                table: "Address",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -596,7 +596,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "AddressLine1",
-                table: "Addresses",
+                table: "Address",
                 type: "text",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -604,14 +604,14 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Suppliers_Address_Id1",
-                table: "Suppliers",
+                table: "Supplier",
                 column: "Address_Id1");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Suppliers_Addresses_Address_Id1",
-                table: "Suppliers",
+                table: "Supplier",
                 column: "Address_Id1",
-                principalTable: "Addresses",
+                principalTable: "Address",
                 principalColumn: "Address_Id",
                 onDelete: ReferentialAction.Restrict);
         }

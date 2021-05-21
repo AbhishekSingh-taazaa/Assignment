@@ -8,23 +8,23 @@ namespace PraticeEntityFramework.Library.Infrastructure
 {
   public  class DepartmentalStoreContext : DbContext
     {
-        public  DbSet<Staff> Staffs { get; set; }
+        public  DbSet<Staff> Staff { get; set; }
 
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<Address> Address { get; set; }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer> Customer { get; set; }
 
-        public DbSet<Inventory> Inventories { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Inventory> Inventory { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
    
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Product { get; set; }
 
-        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductCategory> ProductCategory { get; set; }
 
-        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
 
-        public DbSet<ProductPrice> productPrices { get; set; }
+        public DbSet<ProductPrice> ProductPrice { get; set; }
 
 
         //public DbSet<Product_Category_Many> Product_Category_Manies { get; set; }
@@ -86,16 +86,16 @@ namespace PraticeEntityFramework.Library.Infrastructure
             modelBuilder.Entity<OrderDetail>().HasOne<Customer>(x => x.Customer).WithMany(x => x.OrderDetail).HasForeignKey(x => x.Customer_Id);
             modelBuilder.Entity<OrderDetail>().HasOne<Address>(x => x.Address).WithMany(x => x.OrderDetail).HasForeignKey(x => x.Address_Id);
             modelBuilder.Entity<OrderDetail>().Property(x => x.Ordered_Quantity).IsRequired();
-            modelBuilder.Entity<OrderDetail>().Property(x => x.Date_Of_Order).IsRequired();
-            modelBuilder.Entity<OrderDetail>().Property(x => x.Date_Of_Delivery).IsRequired();
+            modelBuilder.Entity<OrderDetail>().Property(x => x.Date_Of_Order).IsRequired().HasColumnType("date");
+            modelBuilder.Entity<OrderDetail>().Property(x => x.Date_Of_Delivery).IsRequired().HasColumnType("date");
 
 
             //Product Configuration
             modelBuilder.Entity<Product>().HasKey(x => x.Product_Code);
             modelBuilder.Entity<Product>().HasOne<ProductCategory>(x => x.ProductCategory).WithMany(x => x.Product).HasForeignKey(x => x.ProductCategory_Id);
             modelBuilder.Entity<Product>().Property(x => x.Product_Name).HasMaxLength(120).IsRequired();
-            modelBuilder.Entity<Product>().Property(x => x.Manufacturing_Date).IsRequired();
-            modelBuilder.Entity<Product>().Property(x => x.Expiry_Date).IsRequired();
+            modelBuilder.Entity<Product>().Property(x => x.Manufacturing_Date).IsRequired().HasColumnType("date");
+            modelBuilder.Entity<Product>().Property(x => x.Expiry_Date).HasColumnType("date");
 
             //Prodcut Category Configuration
             modelBuilder.Entity<ProductCategory>().HasKey(x => x.ProductCategory_Id);
@@ -107,8 +107,8 @@ namespace PraticeEntityFramework.Library.Infrastructure
             modelBuilder.Entity<ProductPrice>().HasOne<Product>(x => x.Product).WithMany(x => x.ProductPrice).HasForeignKey(x=>x.Product_Code);
             modelBuilder.Entity<ProductPrice>().Property(x => x.Cost_Price).HasMaxLength(12).IsRequired();
             modelBuilder.Entity<ProductPrice>().Property(x => x.Selling_Price).HasMaxLength(12).IsRequired();
-            modelBuilder.Entity<ProductPrice>().Property(x => x.Date_Of_Register).IsRequired();
-
+            modelBuilder.Entity<ProductPrice>().Property(x => x.Date_Of_Register).IsRequired().HasColumnType("date");
+           
             //Supplier Configuration
             modelBuilder.Entity<Supplier>().HasKey(x=>x.Supplier_Id);
             modelBuilder.Entity<Supplier>().HasOne<Address>(x => x.Address).WithMany(x => x.Supplier).HasForeignKey(x => x.Address_Id);

@@ -10,102 +10,102 @@ namespace PraticeEntityFramework.Library.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Staffs_Addresses_AddressId",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Staffs_Roles_RoleId",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Staffs",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropIndex(
                 name: "IX_Staffs_AddressId",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropIndex(
                 name: "IX_Staffs_RoleId",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Roles",
-                table: "Roles");
+                table: "Role");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Addresses",
-                table: "Addresses");
+                table: "Address");
 
             migrationBuilder.DropColumn(
                 name: "StaffId",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropColumn(
                 name: "AddressId",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropColumn(
                 name: "RoleId",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropColumn(
                 name: "RoleID",
-                table: "Roles");
+                table: "Role");
 
             migrationBuilder.DropColumn(
                 name: "AddressId",
-                table: "Addresses");
+                table: "Address");
 
             migrationBuilder.AddColumn<long>(
                 name: "Staff_Id",
-                table: "Staffs",
+                table: "Staff",
                 nullable: false,
                 defaultValue: 0L)
                 .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             migrationBuilder.AddColumn<long>(
                 name: "Address_Id",
-                table: "Staffs",
+                table: "Staff",
                 nullable: false,
                 defaultValue: 0L);
 
             migrationBuilder.AddColumn<int>(
                 name: "Role_Id",
-                table: "Staffs",
+                table: "Staff",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<int>(
                 name: "Role_Id",
-                table: "Roles",
+                table: "Role",
                 nullable: false,
                 defaultValue: 0)
                 .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             migrationBuilder.AddColumn<long>(
                 name: "Address_Id",
-                table: "Addresses",
+                table: "Address",
                 nullable: false,
                 defaultValue: 0L)
                 .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Staffs",
-                table: "Staffs",
+                table: "Staff",
                 column: "Staff_Id");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Roles",
-                table: "Roles",
+                table: "Role",
                 column: "Role_Id");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Addresses",
-                table: "Addresses",
+                table: "Address",
                 column: "Address_Id");
 
             migrationBuilder.CreateTable(
-                name: "Customers",
+                name: "Customer",
                 columns: table => new
                 {
                     Customer_Id = table.Column<long>(nullable: false)
@@ -123,13 +123,13 @@ namespace PraticeEntityFramework.Library.Migrations
                     table.ForeignKey(
                         name: "FK_Customers_Addresses_Address_Id",
                         column: x => x.Address_Id,
-                        principalTable: "Addresses",
+                        principalTable: "Address",
                         principalColumn: "Address_Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Inventories",
+                name: "Inventory",
                 columns: table => new
                 {
                     Product_Code = table.Column<string>(nullable: false),
@@ -143,7 +143,7 @@ namespace PraticeEntityFramework.Library.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderDetails",
+                name: "OrderDetail",
                 columns: table => new
                 {
                     Order_Id = table.Column<int>(nullable: false)
@@ -162,7 +162,7 @@ namespace PraticeEntityFramework.Library.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductCategories",
+                name: "ProductCategory",
                 columns: table => new
                 {
                     ProductCategory_Id = table.Column<int>(nullable: false)
@@ -175,7 +175,7 @@ namespace PraticeEntityFramework.Library.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Suppliers",
+                name: "Supplier",
                 columns: table => new
                 {
                     Supplier_Id = table.Column<long>(nullable: false)
@@ -194,13 +194,13 @@ namespace PraticeEntityFramework.Library.Migrations
                     table.ForeignKey(
                         name: "FK_Suppliers_Addresses_Address_Id1",
                         column: x => x.Address_Id1,
-                        principalTable: "Addresses",
+                        principalTable: "Address",
                         principalColumn: "Address_Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Product",
                 columns: table => new
                 {
                     Product_Code = table.Column<string>(nullable: false),
@@ -215,13 +215,13 @@ namespace PraticeEntityFramework.Library.Migrations
                     table.ForeignKey(
                         name: "FK_Products_Inventories_Product_Code",
                         column: x => x.Product_Code,
-                        principalTable: "Inventories",
+                        principalTable: "Inventory",
                         principalColumn: "Product_Code",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "productPrices",
+                name: "ProductPrice",
                 columns: table => new
                 {
                     Product_Code = table.Column<string>(nullable: false),
@@ -235,44 +235,44 @@ namespace PraticeEntityFramework.Library.Migrations
                     table.ForeignKey(
                         name: "FK_productPrices_Products_Product_Code",
                         column: x => x.Product_Code,
-                        principalTable: "Products",
+                        principalTable: "Product",
                         principalColumn: "Product_Code",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Staffs_Address_Id",
-                table: "Staffs",
+                table: "Staff",
                 column: "Address_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Staffs_Role_Id",
-                table: "Staffs",
+                table: "Staff",
                 column: "Role_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_Address_Id",
-                table: "Customers",
+                table: "Customer",
                 column: "Address_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Suppliers_Address_Id1",
-                table: "Suppliers",
+                table: "Supplier",
                 column: "Address_Id1");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Staffs_Addresses_Address_Id",
-                table: "Staffs",
+                table: "Staff",
                 column: "Address_Id",
-                principalTable: "Addresses",
+                principalTable: "Address",
                 principalColumn: "Address_Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Staffs_Roles_Role_Id",
-                table: "Staffs",
+                table: "Staff",
                 column: "Role_Id",
-                principalTable: "Roles",
+                principalTable: "Role",
                 principalColumn: "Role_Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -281,76 +281,76 @@ namespace PraticeEntityFramework.Library.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Staffs_Addresses_Address_Id",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Staffs_Roles_Role_Id",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Customer");
 
             migrationBuilder.DropTable(
-                name: "OrderDetails");
+                name: "OrderDetail");
 
             migrationBuilder.DropTable(
-                name: "ProductCategories");
+                name: "ProductCategory");
 
             migrationBuilder.DropTable(
-                name: "productPrices");
+                name: "ProductPrice");
 
             migrationBuilder.DropTable(
-                name: "Suppliers");
+                name: "Supplier");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Product");
 
             migrationBuilder.DropTable(
-                name: "Inventories");
+                name: "Inventory");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Staffs",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropIndex(
                 name: "IX_Staffs_Address_Id",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropIndex(
                 name: "IX_Staffs_Role_Id",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Roles",
-                table: "Roles");
+                table: "Role");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Addresses",
-                table: "Addresses");
+                table: "Address");
 
             migrationBuilder.DropColumn(
                 name: "Staff_Id",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropColumn(
                 name: "Address_Id",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropColumn(
                 name: "Role_Id",
-                table: "Staffs");
+                table: "Staff");
 
             migrationBuilder.DropColumn(
                 name: "Role_Id",
-                table: "Roles");
+                table: "Role");
 
             migrationBuilder.DropColumn(
                 name: "Address_Id",
-                table: "Addresses");
+                table: "Address");
 
             migrationBuilder.AddColumn<long>(
                 name: "StaffId",
-                table: "Staffs",
+                table: "Staff",
                 type: "bigint",
                 nullable: false,
                 defaultValue: 0L)
@@ -358,21 +358,21 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AddColumn<long>(
                 name: "AddressId",
-                table: "Staffs",
+                table: "Staff",
                 type: "bigint",
                 nullable: false,
                 defaultValue: 0L);
 
             migrationBuilder.AddColumn<int>(
                 name: "RoleId",
-                table: "Staffs",
+                table: "Staff",
                 type: "integer",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<int>(
                 name: "RoleID",
-                table: "Roles",
+                table: "Role",
                 type: "integer",
                 nullable: false,
                 defaultValue: 0)
@@ -380,7 +380,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AddColumn<long>(
                 name: "AddressId",
-                table: "Addresses",
+                table: "Address",
                 type: "bigint",
                 nullable: false,
                 defaultValue: 0L)
@@ -388,42 +388,42 @@ namespace PraticeEntityFramework.Library.Migrations
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Staffs",
-                table: "Staffs",
+                table: "Staff",
                 column: "StaffId");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Roles",
-                table: "Roles",
+                table: "Role",
                 column: "RoleID");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Addresses",
-                table: "Addresses",
+                table: "Address",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Staffs_AddressId",
-                table: "Staffs",
+                table: "Staff",
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Staffs_RoleId",
-                table: "Staffs",
+                table: "Staff",
                 column: "RoleId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Staffs_Addresses_AddressId",
-                table: "Staffs",
+                table: "Staff",
                 column: "AddressId",
-                principalTable: "Addresses",
+                principalTable: "Address",
                 principalColumn: "AddressId",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Staffs_Roles_RoleId",
-                table: "Staffs",
+                table: "Staff",
                 column: "RoleId",
-                principalTable: "Roles",
+                principalTable: "Role",
                 principalColumn: "RoleID",
                 onDelete: ReferentialAction.Cascade);
         }

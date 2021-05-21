@@ -44,7 +44,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasKey("AddressId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Role", b =>
@@ -62,7 +62,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasKey("RoleID");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Staff", b =>
@@ -99,7 +99,7 @@ namespace PraticeEntityFramework.Library.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Staffs");
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("PraticeEntityFramework.Library.Entites.Staff", b =>

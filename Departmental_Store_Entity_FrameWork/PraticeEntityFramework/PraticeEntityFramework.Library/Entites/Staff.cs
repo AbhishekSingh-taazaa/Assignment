@@ -27,7 +27,8 @@ namespace PraticeEntityFramework.Library.Entites
 
         public Address Address { get; set; }
 
-     
+
+       
 
     }
 }
